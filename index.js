@@ -15,7 +15,7 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.use('/echo', echo);
+restService.use("/echo", echo);
 
 restService.post("/audio", function(req, res) {
   var speech = "";
