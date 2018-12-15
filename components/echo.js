@@ -1,6 +1,6 @@
-import express from 'express';
+const express = require('express');
 
-const router = express.router()
+const router = express.Router();
 
 router.post("/echo",(req, res) => {
   var speech =

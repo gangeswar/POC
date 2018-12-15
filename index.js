@@ -3,7 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-import echo from './components/echo';
+const echo = require('./components/echo');
 
 const restService = express();
 
