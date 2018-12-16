@@ -16,10 +16,12 @@ restService.use(
 restService.use(bodyParser.json());
 
 
-app.intent('echo', conv => {
-  conv.ask(`${talk}`);
+app.intent('echo', (conv, params) => {
+  conv.ask(`${params.talk}`);
 });
 
+restService.post('/sample', app);
+
 restService.listen(process.env.PORT || 8000, function() {
-  console.log("Server up and listening");
+  console.log(`Server up and listening`);
 });
