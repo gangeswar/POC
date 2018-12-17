@@ -15,9 +15,23 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-
-app.intent('echo', (conv, params) => {
+app.intent('echo', (conv) => {
   conv.ask(`${params.talk}`);
+});
+
+app.intent('transaction_check_google', (conv) => {
+  conv.ask(new TransactionRequirements({
+    orderOptions: {
+      requestDeliveryAddress: false,
+    },
+    paymentOptions: {
+      googleProvidedOptions: {
+        prepaidCardDisallowed: false,
+        supportedCardNetworks: ['VISA', 'AMEX'],
+        tokenizationParameters: {},
+      },
+    },
+  }));
 });
 
 restService.post('/sample', app);
