@@ -2,7 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const { dialogflow, TransactionRequirements, DeliveryAddress } = require('actions-on-google');
+const { dialogflow, TransactionDecision, DeliveryAddress } = require('actions-on-google');
 
 const restService = express();
 const app = dialogflow();
@@ -20,7 +20,7 @@ app.intent('echo', (conv) => {
 });
 
 app.intent('transaction_check_google', (conv) => {
-  conv.ask(new TransactionRequirements({
+  conv.ask(new TransactionDecision({
     orderOptions: {
       requestDeliveryAddress: false,
     },
