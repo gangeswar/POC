@@ -30,7 +30,17 @@ app.intent('transaction_check_google', (conv) => {
         supportedCardNetworks: ['VISA', 'AMEX'],
         // These will be provided by payment processor,
         // like Stripe, Braintree, Vantiv, etc.
-        tokenizationParameters: {},
+        tokenizationParameters: {
+          parameters: {
+            'gateway': 'braintree',
+            'braintree:sdkVersion': '1.4.0',
+            'braintree:apiVersion': 'v1',
+            'braintree:merchantId': 'xxxxxxxxxxx',
+            'braintree:clientKey': 'sandbox_xxxxxxxxxxxxxxx',
+            'braintree:authorizationFingerprint': 'sandbox_xxxxxxxxxxxxxxx',
+          },
+          tokenizationType: 'PAYMENT_GATEWAY',
+        },
       },
     },
   }));
