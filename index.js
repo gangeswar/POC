@@ -31,14 +31,12 @@ app.intent('transaction_check_google', (conv) => {
         // These will be provided by payment processor,
         // like Stripe, Braintree, Vantiv, etc.
         tokenizationParameters: {
-          parameters: {
-            'gateway': 'braintree',
-            'braintree:sdkVersion': '1.4.0',
-            'braintree:apiVersion': 'v1',
-            'braintree:merchantId': '53hw3zycz8q353gn',
-            'braintree:clientKey': 'MIIBCgKCAQEAqe+BbqpHWkHTP7Y2SW77GwlQ9tcZ3UID3XKk755gC5kgBPZGSPMtjr1rDTmXOP4YqIJBOIj+VnYtZ/JLE2FW+LqUpfMM0MgY1WeVZ+JXhzx/MjGAq8/CYqAx2zDpxundFwr29UPF/0JvyfKPUNg5ZSq0E5Zpsn3FNG3qgqvUZiJQ6VRsUqdP+QJUwuPlqVUO2ZctMkCSXo15QbkzWLkaYcdGkTcbVxuMIO6rMXQcHM09vOsVPb1jTeuSIxbaCdubXhxLM7DlRpyyV2m/bnI1PnRLQ3crY12slvRMRLKGC1NcsWye6Pa2xdtO4MWOthQ+ZuI/LjFyf9vcHffL9q5w2QIDAQAB',
-          },
           tokenizationType: 'PAYMENT_GATEWAY',
+          parameters: { 
+            'gateway': 'stripe',
+            'stripe:publishableKey': (conv.sandbox ? 'pk_test_key' : 'pk_live_key'),
+            'stripe:version': '2017-04-06'
+          },
         },
       },
     },
